@@ -8,32 +8,7 @@
 <body>
 
 <section>
-    <div class="container">
-        <form id="myForm" action="">
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <input class="form-control" type="text" id="name" name="name" placeholder="Enter your name">
-                    <span id="nameError" style="color: red; font-size: small;"></span><br>
-                </div>
-                <div class="form-group col-md-6">
-                    <input class="form-control" type="text" id="email" name="email" placeholder="Enter your email">
-                    <span id="emailError" style="color: red; font-size: small;"></span><br>
-                </div>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" id="subject" name="subject" placeholder="Enter the subject">
-                <span id="subjectError" style="color: red; font-size: small;"></span><br>
-            </div>
-            <br>
-            <div class="form-group">
-                <textarea class="form-control" id="exampleTextarea" rows="5" placeholder="Enter your message"></textarea>
-                <br>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary btn-lg border-0" type="button" onclick="validateForm()">Submit</button>
-            </div>
-            <br>
-            <p id="result"></p>
+    >
         </form>
     </div>
 </section>
@@ -65,26 +40,8 @@
             document.getElementById('subjectError').innerHTML = '';
         }
 
-        if (name !== '' && emailRegex.test(email) && subject !== '') {
-            submitForm();
-        }
     }
 
-    function submitForm() {
-        $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbxS_6jI-qu5YXJIK4X44Y2mLTaCKOLK_k0txb0tTvULZ6PJIKQL6IRU6gzc3HD7mbJosg/exec",
-            data: $("#myForm").serialize(),
-            method: "post",
-            success: function (response) {
-                alert("Form submitted successfully");
-                window.location.reload();
-            },
-            error: function (err) {
-                alert("Something went wrong");
-            }
-        });
-    }
-</script>
 
 </body>
 </html>
